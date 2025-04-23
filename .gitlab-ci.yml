@@ -1,0 +1,24 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+variables:
+  DOCKER_TLS_CERTDIR: ""
+  PROJECT_NAME: "RetailAPI"
+  IMAGE_TAG: "${CI_COMMIT_REF_SLUG}"
+  IMAGE_NAME: "${CI_REGISTRY_IMAGE}:${IMAGE_TAG}"
+
+before_script:
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_JOB_TOKEN" "$CI_REGISTRY"
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - docker build -t $IMAGE_NAME .
+    - docker push $IMAGE_NAME
+  tags:
+    - docker
