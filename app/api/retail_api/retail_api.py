@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 from api.base_api.api_client_retailcrm import ApiClientRetailCRM
 from config import settings
 
-retail_router = APIRouter(tags=["retailCRM"])
+retail_router = APIRouter()
 
 
 def get_crm_client() -> ApiClientRetailCRM:

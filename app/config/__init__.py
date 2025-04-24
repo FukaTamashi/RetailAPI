@@ -20,9 +20,9 @@ class Settings(BaseSettings):
     cors_allow_methods: list[str]     = ["*"]
     cors_allow_headers: list[str]     = ["*"]
 
-    api_key:   str    = Field(..., env="API_KEY")
-    base_url:  str    = Field(..., env="BASE_URL")
-    site_code: str    = Field(..., env="SITE_CODE")
+    api_key:   str = Field(..., env="API_KEY")
+    base_url:  str = Field(..., env="BASE_URL")
+    site_code: str = Field(..., env="SITE_CODE")
 
     model_config = SettingsConfigDict(
         env_file=str(ENV_FILE_PATH),
