@@ -3,10 +3,11 @@ FROM python:3.11-slim
 WORKDIR /app
 
 COPY requirements.txt ./
-
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY docker .
+COPY . .
+
+ENV PYTHONPATH="${PYTHONPATH}:/app/app"
 
 EXPOSE 8088
 
