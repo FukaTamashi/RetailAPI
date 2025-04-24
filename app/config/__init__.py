@@ -8,7 +8,7 @@ from config.envs.development import DevelopmentConfig
 
 class Settings(BaseSettings):
     env: str = "development"
-    app_host: str = "127.0.0.1"
+    app_host: str = "0.0.0.0"
     app_port: int     = Field(..., env="APP_PORT")
     workers: int      = Field(..., env="WORKERS")
     reload: bool      = True

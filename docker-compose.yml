@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   retailapi:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: retailapi
     env_file:
       - .env
